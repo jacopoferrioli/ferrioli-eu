@@ -35,20 +35,11 @@
             color: var(--primary);
             text-decoration: none;
             display: flex;
-            flex-direction: column;
+            align-items: center;
         }
         .doc-item i {
-            margin-bottom: 5px;
+            margin-right: 10px;
             color: var(--secondary);
-            font-size: 24px;
-        }
-        .doc-title {
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .doc-subtitle {
-            font-size: 14px;
-            color: #555;
         }
     </style>
 </head>
@@ -56,9 +47,8 @@
     <div class="doc-container">
         <h1 class="text-center mb-4">Documents</h1>
         
-        <div id="documents-list">
-            <!-- I documenti verranno caricati qui -->
-        </div>
+        <!-- Placeholder for documents -->
+        <div id="documentsList"></div>
     </div>
 
     <!-- Font Awesome for icons -->
@@ -66,28 +56,53 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Script per caricare i documenti -->
+    <script src="https://cdn.appwrite.io/v1.0.0/appwrite.min.js"></script>
     <script>
-        fetch('/assets/documents/documents.json')
-            .then(response => response.json())
-            .then(documents => {
-                const list = document.getElementById('documents-list');
+        // Inizializzazione SDK Appwrite
+        const sdk = new Appwrite();
+        sdk.setEndpoint('https://fra.cloud.appwrite.io/v1').setProject('680c9ede00072e23888c');  // Modifica con il tuo endpoint e Project ID
 
-                documents.forEach(doc => {
-                    const item = document.createElement('div');
-                    item.className = 'doc-item';
-                    item.innerHTML = `
-                        <a href="${doc.file}" target="_blank">
-                            <i class="fas fa-file-alt"></i>
-                            <span class="doc-title">${doc.title}</span>
-                            <span class="doc-subtitle">${doc.subtitle}</span>
-                        </a>
-                    `;
-                    list.appendChild(item);
+        // ID del tuo Bucket Appwrite dove sono ospitati i documenti
+        const bucketId = '680c9f6c001fc72fa1ce';  // Inserisci l'ID del tuo bucket qui
+
+        // Funzione per ottenere il link di visualizzazione del file
+        async function getDocumentUrl(fileId) {
+            try {
+                const file = await sdk.storage.getFileView(bucketId, fileId);
+                return file.href;  // Questo restituisce l'URL per visualizzare il file
+            } catch (error) {
+                console.error("Errore nel recupero del file:", error);
+                return null;
+            }
+        }
+
+        // Caricare e visualizzare i documenti
+        fetch('/assets/json/documents.json')  // Recupera il JSON che contiene i documenti
+            .then(response => response.json())
+            .then(data => {
+                const documentsList = document.getElementById('documentsList');
+
+                // Itera sui documenti e aggiungi ciascun elemento nella lista
+                data.documents.forEach(doc => {
+                    // Recupera l'URL del file tramite Appwrite API
+                    getDocumentUrl(doc.file_id).then(url => {
+                        if (url) {
+                            const docItem = document.createElement('div');
+                            docItem.classList.add('doc-item');
+                            docItem.innerHTML = `
+                                <a href="${url}" target="_blank">
+                                    <i class="fas fa-file-${doc.type === 'pdf' ? 'pdf' : 'word'}"></i> 
+                                    ${doc.title}
+                                </a>
+                                <p>${doc.description}</p>
+                            `;
+                            documentsList.appendChild(docItem);
+                        }
+                    });
                 });
             })
             .catch(error => {
-                console.error('Errore nel caricamento dei documenti:', error);
+                console.error('Errore nel caricare i documenti:', error);
             });
     </script>
 </body>
