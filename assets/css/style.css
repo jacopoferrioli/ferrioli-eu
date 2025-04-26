@@ -181,3 +181,22 @@ body {
     font-size: 16px; /* Text font size */
     color: #444; /* Text color */
 }
+#footer {
+    background-color: #333; /* Dark background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding inside the footer */
+    text-align: center; /* Center text alignment */
+    position: relative; /* Positioning */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.footer-content h2 {
+    font-size: 20px; /* Footer title font size */
+    margin: 0; /* Remove default margin */
+}
+
+.footer-content p {
+    font-size: 16px; /* Footer text font size */
+    margin: 10px 0 0; /* Margin for spacing */
+}
