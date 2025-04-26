@@ -11,6 +11,7 @@
             --secondary: #3498db;
             --accent: #e74c3c;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
@@ -114,6 +115,20 @@
             border: none;
             padding: 10px;
         }
+
+        /* Footer */
+        #footer {
+            background-color: #4a4a4a; /* Dark gray background */
+            color: white; /* Text color */
+            padding: 20px; /* Padding inside the footer */
+            text-align: center; /* Center text alignment */
+            border-top-left-radius: 20px; /* Rounded corners */
+            border-top-right-radius: 20px; /* Rounded corners */
+            position: relative; /* Positioning */
+            bottom: 0; /* Stick to the bottom */
+            width: 100%; /* Full width */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
     </style>
 </head>
 <body>
@@ -127,7 +142,7 @@
 
     <div class="main-container">
         <h1 class="page-title">HOMEPAGE</h1>
-        <h2 class="page-subtitle">Accedi ai servizi</h2>
+        <h2 class="page-sub title">Accedi ai servizi</h2>
         
         <div class="services-grid" id="servicesGrid">
             <!-- Pulsanti generati dinamicamente -->
@@ -144,7 +159,7 @@
             projectId: "ferriolieu",
             storageBucket: "ferriolieu.appspot.com",
             messagingSenderId: "373796791074",
-            appId: "1 :373796791074:web:7ed13883e89fcff932fb7b"
+            appId: "1:373796791074:web:7ed13883e89fcff932fb7b"
         };
 
         firebase.initializeApp(firebaseConfig);
@@ -216,15 +231,12 @@
             }
         });
     </script>
-<section id="rounded-section">
-    <h2>Main Title</h2>
-    <h3>Subtitle</h3>
-    <p>This is where you can add your text. Feel free to share your thoughts, ideas, or any other content you want to display in this section.</p>
-</section>
+
 <footer id="footer">
     <div class="footer-content">
-        <h2>Footer Title</h2>
-        <p>This is the footer area where you can add additional information, links, or any other text you want to display.</p>
+        <h3>FERRIOLI.EU</h3>
+        <p>Servizio ad esclusivo uso interno</p>
+        <p>Per ulteriore supporto contatta il tuo amministratore di sistema</p>
     </div>
 </footer>
 </body>
