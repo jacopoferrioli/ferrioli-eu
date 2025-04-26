@@ -156,3 +156,28 @@ body {
 .service-card .btn {
     width: 100%;
 }
+
+#rounded-section {
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 20px; /* Padding inside the section */
+    margin: 20px auto; /* Center the section with margin */
+    width: 80%; /* Width of the section */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center text alignment */
+}
+
+#rounded-section h2 {
+    font-size: 24px; /* Main title font size */
+    color: #333; /* Title color */
+}
+
+#rounded-section h3 {
+    font-size: 20px; /* Subtitle font size */
+    color: #666; /* Subtitle color */
+}
+
+#rounded-section p {
+    font-size: 16px; /* Text font size */
+    color: #444; /* Text color */
+}
