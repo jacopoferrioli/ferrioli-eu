@@ -1,12 +1,22 @@
-[
-  {
-    "name": "P.O.G.E.",
-    "subtitle": "Cultura a Seborg 2025",
-    "file": "https://fra.cloud.appwrite.io/v1/storage/buckets/680c9f6c001fc72fa1ce/files/pogecas25/view?project=680c9ede00072e23888c&mode=admin"
-  },
-  {
-    "name": "Modulo Ferie",
-    "subtitle": "Richiesta di ferie e permessi",
-    "file": "assets/modulo-ferie.pdf"
-  }
-]
+{
+    "documents": [
+        {
+            "title": "Document 1",
+            "description": "Descrizione del primo documento.",
+            "file_id": "646e5f35c8b0b835e2c2",  // ID del file Appwrite (esempio)
+            "type": "pdf"
+        },
+        {
+            "title": "User Guide",
+            "description": "Guida per l'utente.",
+            "file_id": "646e5f35c8b0b835e2c3",  // ID del file Appwrite (esempio)
+            "type": "docx"
+        },
+        {
+            "title": "Report Annuale",
+            "description": "Rapporto annuale per l'anno 2024.",
+            "file_id": "646e5f35c8b0b835e2c4",  // ID del file Appwrite (esempio)
+            "type": "pdf"
+        }
+    ]
+}
